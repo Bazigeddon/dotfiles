@@ -1,15 +1,3 @@
-# Define your own colour scheme by redefining the following variables
-# To see what number represents what colour run 'spectrum_ls' in an 'oh_my_zhs'
-fg_error=     $FG[196]      # the error if a process not temrinated correctly
-fg_user=      $FG[004]	    # the user name
-fg_at=        $FG[066]      # the @ sign between user and host
-fg_host=      $FG[002]	    # the host name
-fg_oA=        $FG[117]	    # the current path
-fg_lineStart1=$FG[004]	    # the first bold at the start of the line
-fg_lineStart2=$FG[002]	    # the second bold at the start of the line
-fg_lineStart3=$FG[117]	    # the third bold at the start of the line
-fg_lgray=     $FG[004]	    # the colour of the ip adress
-
 #Load all plugins and extern sources
 source ~/.doto_src/enhancd/init.sh
 #eval "$(fasd --init auto)"
@@ -39,13 +27,8 @@ setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_DUPS
 
-#adjust colours for the theme
+#load and adjust colours for the theme
 export ZLS_COLORS=$LS_COLORS
-
-
-
-# bindkey "^[[A" history-search-backward
-# bindkey "^[[B" history-search-forward
 cFg="2;38;5;"
 # %d	actual text
 infoBg=$BG[234];	infoFg=$FG[244];
@@ -63,7 +46,7 @@ zstyle ':completion:*' group-name ''
 #Autocompletion Path
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(*)=='${cFg}${cGrn}'='$cFg'117}:${(s.:.)LS_COLORS}")';
 zstyle ':completion:*:aliases' list-colors '=*='$cFg'072'
-zstyle ':completion:*:options' list-colors '=(-- *)='$cFg'004'
+zstyle ':completion:*:options' list-colors '=(-- *)='$cFg'239'
 # zstyle ':completion:*:options' list-colors '=^(-- *)=34'
 
 # zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
@@ -93,9 +76,14 @@ zstyle ':filter-select' extended-search yes
 zstyle ':filter-select' rotate-list yes
 
 fpath=(/home/vulder/.zgen/http:/git.code.sf.net/p/zsh/code-master/Completion/Linux/Command $fpath)
+
+# everything history related
 bindkey '^R' zaw-history
 bindkey '^Q' zaw
-
+#HISTFILE=/root/.zsh-histfile
+HISTFILE=$HOME/.zsh-histfile
+HISTSIZE=5000
+SAVEHIST=5000
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=cyan,fg=white'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=white,bold'
 for i in brackets main pattern ; do	# line root
@@ -119,7 +107,7 @@ ZSH_HIGHLIGHT_STYLES[function]=fg=green,bold
 ZSH_HIGHLIGHT_STYLES[globbing]=fg=magenta,bold
 ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=009
 ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=white,underline
-ZSH_HIGHLIGHT_STYLES[path]=fg=129
+ZSH_HIGHLIGHT_STYLES[path]=fg=213 # pathes used in command line command
 ZSH_HIGHLIGHT_STYLES[precommand]=fg=white,underline
 ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=009,standout
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=none
@@ -136,24 +124,17 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=magenta,bold'
 
 . ~/.doto_src/autojump/bin/autojump.zsh
 
-alias zNoflwLink="unsetopt chaselinks"
-
-#HISTFILE=/root/.zsh-histfile
-HISTFILE=$HOME/.zsh-histfile
-HISTSIZE=5000
-SAVEHIST=5000
-
-#TODO: Hier Variablen festlegen
-
-fg_error=$FG[196] # the error if a process not temrinated correctly
-fg_user=$FG[004]	# the user name
-fg_at=$FG[066] # the @ sign between user and host
-fg_host=$FG[002]	# the host name
-fg_oA=$FG[117]	# the current path
-fg_lineStart1=$FG[004]		# the first bold at the start of the line
-fg_lineStart2=$FG[002]		# the second bold at the start of the line
-fg_lineStart3=$FG[117]		# the third bold at the start of the line
-fg_lgray=$FG[004]	# the colour of the ip adress
+# Define your own colour scheme by redefining the following variables
+# To see what number represents what colour run 'spectrum_ls' in an 'oh_my_zhs'
+fg_error=$FG[196]       # error if a process not temrinated correctly
+fg_user=$FG[004]	# user name
+fg_at=$FG[066]          # @ sign between user and host
+fg_host=$FG[002]	# host name
+fg_oA=$FG[117]	        # current path
+fg_lineStart1=$FG[004]	# first bold at the start of the line
+fg_lineStart2=$FG[002]	# second bold at the start of the line
+fg_lineStart3=$FG[117]	# third bold at the start of the line
+fg_lgray=$FG[004]	# colour of the ip adress
 
 # adjust the colour of the ip if you are on a ssh connection
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then fg_oA=$FG[213]; fi
