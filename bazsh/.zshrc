@@ -134,7 +134,7 @@ fg_oA=$FG[117]	        # current path
 fg_lineStart1=$FG[004]	# first bold at the start of the line
 fg_lineStart2=$FG[002]	# second bold at the start of the line
 fg_lineStart3=$FG[117]	# third bold at the start of the line
-fg_lgray=$FG[004]	# colour of the ip adress
+fg_lgray=$FG[244]	# colour of the ip adress
 
 # adjust the colour of the ip if you are on a ssh connection
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then fg_oA=$FG[213]; fi

@@ -1,7 +1,3 @@
-
-### This was taken from https://github.com/woefe/git-prompt.zsh and the     ###
-### colour of the prompt was changed. The function however was untouched.   ###
-
 # zsh-git-prompt a lightweight git prompt for zsh.
 # Copyright © 2018 Wolfgang Popp
 #
@@ -33,6 +29,8 @@ function gitprompt() {
             MAGENTA = "%F{magenta}";
             GREEN = "%F{green}";
             BLUE = "%F{blue}";
+            ORANGE = "%F{166}";
+            GREY = "%F{244}";
             BOLD = "%B";
             NB = "%b";
             NC = "%f";
@@ -90,7 +88,7 @@ function gitprompt() {
 
             printf "[";
 
-            printf "%s", GREEN
+            printf "%s", GREY
             printf "%s", BOLD
             if (head == "(detached)") {
                 printf ":%s", substr(oid, 0, 7);
