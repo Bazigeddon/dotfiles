@@ -1,3 +1,7 @@
+
+### This was taken from https://github.com/woefe/git-prompt.zsh and the     ###
+### colour of the prompt was changed. The function however was untouched.   ###
+
 # zsh-git-prompt a lightweight git prompt for zsh.
 # Copyright © 2018 Wolfgang Popp
 #
