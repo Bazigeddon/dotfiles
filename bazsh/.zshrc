@@ -107,7 +107,7 @@ ZSH_HIGHLIGHT_STYLES[function]=fg=green,bold
 ZSH_HIGHLIGHT_STYLES[globbing]=fg=magenta,bold
 ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=009
 ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=white,underline
-ZSH_HIGHLIGHT_STYLES[path]=fg=213 # pathes used in command line command
+ZSH_HIGHLIGHT_STYLES[path]=fg=117 # pathes used in command line command
 ZSH_HIGHLIGHT_STYLES[precommand]=fg=white,underline
 ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=009,standout
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=none
@@ -129,8 +129,8 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=magenta,bold'
 fg_error=$FG[196]       # error if a process not temrinated correctly
 fg_user=$FG[004]	# user name
 fg_at=$FG[066]          # @ sign between user and host
-fg_host=$FG[002]	# host name
-fg_oA=$FG[117]	        # current path
+fg_host=$FG[004]	# host name
+fg_oA=$FG[244]	        # current path
 fg_lineStart1=$FG[004]	# first bold at the start of the line
 fg_lineStart2=$FG[002]	# second bold at the start of the line
 fg_lineStart3=$FG[117]	# third bold at the start of the line
@@ -142,7 +142,7 @@ if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then fg_oA=$FG[213]; fi
 # building the prompt with all the customized colours 
 function prompt_char {
 	if [ $UID -eq 0 ]; then echo "%{$fg[red]%}#%{$reset_color%}";
-        else echo "%{$fg_lineStart1%}❯%{$fg_lineStart2%}❯%{$fg_lineStart3%}❯%{$reset_color%}"; fi
+        else echo "%{$fg_lineStart1%}❯%{$reset_color%}"; fi
 }
 PROMPT='
 %(?,,%{$fg_error%}⚡$? %{$reset_color%})%{$fg_user%}%n%{$fg_at%}@%{$fg_host%}%m%{$reset_color%}: %{$fg_oA%}%~%{$reset_color%}$(gitprompt)
