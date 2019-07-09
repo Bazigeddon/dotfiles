@@ -1,5 +1,6 @@
 #Load all plugins and extern sources
 source ~/.doto_src/enhancd/init.sh
+. ~/.doto_src/autojump/bin/autojump.zsh
 #eval "$(fasd --init auto)"
 source ~/.zgen/zgen.zsh     # your local zgen installation
 source ~/.bazsh/plugins.zsh # list of all loaded and available plugins
@@ -75,7 +76,7 @@ zstyle ':filter-select' case-insensitive yes
 zstyle ':filter-select' extended-search yes
 zstyle ':filter-select' rotate-list yes
 
-fpath=(/home/vulder/.zgen/http:/git.code.sf.net/p/zsh/code-master/Completion/Linux/Command $fpath)
+fpath=(/home/simon/.zgen/http:/git.code.sf.net/p/zsh/code-master/Completion/Linux/Command $fpath)
 
 # everything history related
 bindkey '^R' zaw-history
@@ -122,7 +123,6 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=red,bold'
 ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=yellow,bold'
 ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=magenta,bold'
 
-. ~/.doto_src/autojump/bin/autojump.zsh
 
 # Define your own colour scheme by redefining the following variables
 # To see what number represents what colour run 'spectrum_ls' in an 'oh_my_zhs'
@@ -139,7 +139,7 @@ fg_lgray=$FG[244]	# colour of the ip adress
 # adjust the colour of the ip if you are on a ssh connection
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then fg_oA=$FG[213]; fi
 
-# building the prompt with all the customized colours 
+# building the prompt with all the customized colours
 function prompt_char {
 	if [ $UID -eq 0 ]; then echo "%{$fg[red]%}#%{$reset_color%}";
         else echo "%{$fg_lineStart1%}❯%{$reset_color%}"; fi
