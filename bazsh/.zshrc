@@ -76,7 +76,7 @@ zstyle ':filter-select' case-insensitive yes
 zstyle ':filter-select' extended-search yes
 zstyle ':filter-select' rotate-list yes
 
-fpath=(/home/simon/.zgen/http:/git.code.sf.net/p/zsh/code-master/Completion/Linux/Command $fpath)
+fpath=($HOME/.zgen/http:/git.code.sf.net/p/zsh/code-master/Completion/Linux/Command $fpath)
 
 # everything history related
 bindkey '^R' zaw-history
